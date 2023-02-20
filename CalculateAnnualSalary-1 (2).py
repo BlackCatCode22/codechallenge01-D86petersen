@@ -1,7 +1,8 @@
 # CalculateAnnualSalary.py
-# dH 8/8/22
+# Dustin Petersen
+# 2/19/2023
 #
-# CIT-95 Fall 2022 Module 01 Code Challenge
+# CIT-95 Spring 2023 Module 01 Code Challenge
 #
 # 1) Work through the code below and complete any Common Error exercises (uncomment, correct, run, repeat).
 # 2) Study the references and code up three examples from each reference -- your choice of topic (choose something
@@ -132,3 +133,60 @@ print(index_of_space_after_money)
 
 # Now that you have all the code you need for this challenge... code up the two functions mentioned at the
 # top of this challenge. Good luck!
+
+
+# ------------------------------------------------- Challenge Area ----------------------------------------------------
+
+
+# Used print statements to create the UI
+print("\n\n")
+print("---------------- Annual Salary Calculator ----------------")
+
+print()
+print()
+
+print("\n\n")
+
+print("========== Gathering User Data ==========")
+print("\n\n\n")
+
+# Create 3 variables and collect user input used title() method to capitalize first and last name
+# used strip() method to delete white space
+name = input("Please enter your name: ").title().strip()
+# Wrapped my inputs in floats to cast them to floats
+hours = float(input("Please enter number of hours worked last week: "))
+hourly_pay_rate = float(input("Please enter your hourly wage: "))
+
+# Create a long string with concatenation.
+# Used an f-string to create variable long_string
+long_string = f"{name}, worked for a total of {hours:,.2f} hours this week at an hourly rate of ${hourly_pay_rate:,.2f}."
+
+# Output the concatenated, long string containing hard-coded values.
+print("\n\n", long_string, "\n\n")
+
+
+# Created a function that finds the weekly pay and returns it
+def find_weekly_pay(hours, hourly_pay_rate):
+    weekly_pay = hours * hourly_pay_rate
+    return weekly_pay
+
+
+# Print the users total amount earned for a week using an f-string and calling the find_weekly_pay function
+# Passed in hours and hourly_pay_rate to function
+weekly_pay_statement = f"{name}, worked a total of {hours} hours this week! They earned a total of {weekly_pay}!"
+
+# Prompt user for number of weeks worked in the year
+weeks_worked_in_year = float(input("Please enter the number of weeks worked in the year: "))
+
+# Created a function find_annual_pay that takes in 2 arguments weekly_pay, and week_worked_in_year
+# Returns annual pay
+def find_annual_pay(weekly_pay, weeks_worked_in_year):
+    annual_pay = weekly_pay * weeks_worked_in_year
+    return annual_pay
+
+
+print(
+    f"{name}, worked {weeks_worked_in_year:,.2f} weeks this year! Their annual pay is $"
+    f"{find_annual_pay(find_weekly_pay(hours, hourly_pay_rate), weeks_worked_in_year):,.2f}"
+
+)
